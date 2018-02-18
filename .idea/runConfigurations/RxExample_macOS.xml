@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RxExample-macOS" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RxExample" TARGET_NAME="RxExample-OSX" CONFIG_NAME="Debug" SCHEME_NAME="RxExample-macOS" RUN_TARGET_PROJECT_NAME="RxExample" RUN_TARGET_NAME="RxExample-OSX" MAKE_ACTIVE="TRUE">
+    <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+      <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+    </EXTENSION>
+    <method />
+  </configuration>
+</component>

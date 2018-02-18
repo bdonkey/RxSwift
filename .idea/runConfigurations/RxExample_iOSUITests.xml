@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RxExample-iOSUITests" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RxExample" TARGET_NAME="RxExample-iOSUITests" CONFIG_NAME="Debug" SCHEME_NAME="RxExample-iOSUITests" TEST_MODE="SUITE_TEST" XCODE_SKIPPED_TESTS_HASH_CODE="0">
+    <method />
+  </configuration>
+</component>
