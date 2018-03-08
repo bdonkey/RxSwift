@@ -245,6 +245,19 @@ extension SingleTest {
             ])
     }
 
+    func test_catchErrorJustReturn() {
+        let scheduler = TestScheduler(initialClock: 0)
+
+        let res = scheduler.start {
+            (Single.error(testError).catchErrorJustReturn(2) as Single<Int>).asObservable()
+        }
+
+        XCTAssertEqual(res.events, [
+            .next(200, 2),
+            .completed(200)
+        ])
+    }
+
     func test_retry() {
         let scheduler = TestScheduler(initialClock: 0)
 
@@ -561,6 +574,50 @@ extension SingleTest {
             .next(200, 3),
             .completed(200)
             ])
+    }
+    
+    func testZipCollection_selector() {
+        let collection = [Single<Int>.just(1), Single<Int>.just(1), Single<Int>.just(1)]
+        let singleResult: Single<Int> = Single.zip(collection) { $0.reduce(0, +) }
+        
+        let result = try! singleResult
+            .toBlocking()
+            .first()!
+        
+        XCTAssertEqual(result, 3)
+    }
+    
+    func testZipCollection_selector_when_empty() {
+        let collection: [Single<Int>] = []
+        let singleResult = Single.zip(collection) { $0.reduce(0, +) }
+        
+        let result = try! singleResult
+            .toBlocking()
+            .first()!
+        
+        XCTAssertEqual(result, 0)
+    }
+    
+    func testZipCollection_tuple() {
+        let collection = [Single<Int>.just(1), Single<Int>.just(1), Single<Int>.just(1)]
+        let singleResult: Single<Int> = Single.zip(collection).map { $0.reduce(0, +) }
+        
+        let result = try! singleResult
+            .toBlocking()
+            .first()!
+        
+        XCTAssertEqual(result, 3)
+    }
+    
+    func testZipCollection_tuple_when_empty() {
+        let collection: [Single<Int>] = []
+        let singleResult = Single.zip(collection)
+        
+        let result = try! singleResult
+            .toBlocking()
+            .first()!
+        
+        XCTAssertEqual(result, [])
     }
 }
 
