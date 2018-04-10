@@ -181,13 +181,7 @@ example("deferred") {
     deferredSequence
         .subscribe(onNext: { print($0) })
         .disposed(by: disposeBag)
-}
-/*:
- ----
- ## error
- Creates an `Observable` sequence that emits no items and immediately terminates with an error.
- */
-example("error") {
+}`example("error") {
     let disposeBag = DisposeBag()
         
     Observable<Int>.error(TestError.test)
