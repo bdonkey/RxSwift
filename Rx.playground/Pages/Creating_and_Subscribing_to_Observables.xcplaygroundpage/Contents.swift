@@ -181,7 +181,9 @@ example("deferred") {
     deferredSequence
         .subscribe(onNext: { print($0) })
         .disposed(by: disposeBag)
-}`example("error") {
+}
+
+example("error") {
     let disposeBag = DisposeBag()
         
     Observable<Int>.error(TestError.test)

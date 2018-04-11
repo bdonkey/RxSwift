@@ -81,7 +81,7 @@ example("zip") {
     intSubject.onNext(2)
     
     stringSubject.onNext("🆎")
-    intSubject.onNext(3)
+    intSubject.onNext(4)
 }
 /*:
  ----

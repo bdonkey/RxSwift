@@ -41,8 +41,10 @@ example("catchError") {
     let disposeBag = DisposeBag()
     
     let sequenceThatFails = PublishSubject<String>()
-    let recoverySequence = PublishSubject<String>()
-    
+//    let recoverySequence = PublishSubject<String>()
+  // I like this idea better for recoverySequence ss 2018-04-10
+    let recoverySequence = BehaviorSubject(value: "😊")
+
     sequenceThatFails
         .catchError {
             print("Error:", $0)
@@ -56,8 +58,8 @@ example("catchError") {
     sequenceThatFails.onNext("😡")
     sequenceThatFails.onNext("🔴")
     sequenceThatFails.onError(TestError.test)
-    
-    recoverySequence.onNext("😊")
+//    recoverySequence.onNext("😊")
+
 }
 /*:
  ----

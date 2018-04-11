@@ -62,8 +62,8 @@ example("concat") {
     variable.value = subject2
     
     subject2.onNext("I would be ignored")
-    subject2.onNext("🐱")
-    
+    subject2.onNext("🐱") // this is emitted because of BehaviorSubject init or latest value
+
     subject1.onCompleted()
     
     subject2.onNext("🐭")
