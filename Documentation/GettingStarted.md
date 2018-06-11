@@ -30,7 +30,7 @@ This project tries to be consistent with [ReactiveX.io](http://reactivex.io/). T
 ## Basics
 The [equivalence](MathBehindRx.md) of observer pattern (`Observable<Element>` sequence) and normal sequences (`Sequence`) is the most important thing to understand about Rx.
 
-**Every `Observable` sequence is just a sequence. The key advantage for an `Observable` vs Swift's `Sequence` is that it can also receive elements asynchronously. This is the kernel of the RxSwift, documentation from here is about ways that we expand on that idea.**
+**Every `Observable` sequence is just a sequence. The key advantage for an `Observable` vs Swift's `Sequence` is that it can also receive elements asynchronously. This is the kernel of RxSwift, documentation from here is about ways that we expand on that idea.**
 
 * `Observable`(`ObservableType`) is equivalent to `Sequence`
 * `ObservableType.subscribe` method is equivalent to `Sequence.makeIterator` method.
@@ -69,7 +69,7 @@ These are called marble diagrams. There are more marble diagrams at [rxmarbles.c
 
 If we were to specify sequence grammar as a regular expression it would look like:
 
-**next* (error | completed)?**
+**next\* (error | completed)?**
 
 This describes the following:
 
@@ -594,7 +594,7 @@ Almost all operators are demonstrated in [Playgrounds](../Rx.playground).
 
 To use playgrounds please open `Rx.xcworkspace`, build `RxSwift-macOS` scheme and then open playgrounds in `Rx.xcworkspace` tree view.
 
-In case you need an operator, and don't know how to find it there a [decision tree of operators](http://reactivex.io/documentation/operators.html#tree).
+In case you need an operator, and don't know how to find it there is a [decision tree of operators](http://reactivex.io/documentation/operators.html#tree).
 
 ### Custom operators
 
