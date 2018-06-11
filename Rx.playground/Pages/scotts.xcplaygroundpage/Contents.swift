@@ -23,7 +23,7 @@ example("map") {
     .disposed(by: disposeBag)
 }
 
-example("dictionary") {
+example("dictionary Observable") {
   let disposeBag = DisposeBag()
   var d = ["scott":"schmidt1"]
   let od = Observable.of(d)
@@ -39,6 +39,79 @@ example("dictionary") {
   print(d)
 
 }
+
+example("dict Observable 1"){
+    let bag = DisposeBag()
+    var d: [Int:Int] = [:]
+    var od: Observable<[Int:Int]> = Observable.of([:])
+    
+    for index in 1...5 {
+        d[index] = index * 5
+        print(d)
+    }
+    od = Observable.of(d)
+    od
+        .subscribe(
+            onNext: {item in
+                print("item = \(item)")
+        })
+        .disposed(by: bag)
+}
+
+example("dict Observable 2"){
+    let bag = DisposeBag()
+    var d: [Int:Int] = [:]
+    var od: Observable<[Int:Int]> = Observable.of([:])
+    
+    for index in 1...5 {
+        od = Observable.of([index: index * 120])
+        d[index] = index * 5
+        print(d)
+    }
+    od
+        .subscribe(
+            onNext: {item in
+                print("item = \(item)")
+        })
+        .disposed(by: bag)
+}
+
+func getDictOb(_ index: Int) -> Observable<[Int:Int]> {
+    let ob = Observable.of([index: index * 100])
+    return ob
+}
+
+example("dict Observable 3"){
+    let bag = DisposeBag()
+    var d: [Int:Int] = [:]
+    var od: Observable<[Int:Int]> = Observable.of([:])
+    
+    print("above returns [:]")
+    od
+        .subscribe(
+            onNext: {item in
+                print("item = \(item)")
+        })
+        .disposed(by: bag)
+
+    for index in 1...5 {
+        od = getDictOb(index)
+        od
+        .subscribe(
+            onNext: { item in
+                print("subscribe in loop = \(item)")
+        })
+    }
+    print("below returns last dict item")
+    od
+        .subscribe(
+            onNext: {item in
+                print("item = \(item)")
+        })
+        .disposed(by: bag)
+
+}
+
 
 example("BehaviorSubject") {
   let disposeBag = DisposeBag()
