@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file.
 ---
 ## Master
 
+* Adds `scan(into:accumulator:)`.
+* Adds `queuePriority` parameter (defaults to `.normal`) to `OperationQueueScheduler`.
+* Performance enhancement reduces Bag dispatch inline code size by 12%.
+
 #### Anomalies
+
+## [4.X.X](https://github.com/ReactiveX/RxSwift/releases/tag/4.X.X)
+
+* Adds new `insert` extension to collect and add multiple disposables to `DisposeBag`.
 
 ## [4.2.0](https://github.com/ReactiveX/RxSwift/releases/tag/4.2.0)
 
@@ -28,12 +36,12 @@ All notable changes to this project will be documented in this file.
 * Add  `Single.catchErrorJustReturn(_:)` operator.
 * Add  `Single.asMaybe(_:)` operator.
 * Add  `Single.asCompletable(_:)` operator.
+* Use `editingEvents` argument in `controlPropertyWithDefaultEvents`.
 
 #### Anomalies
 
 * Lower macOS Deployment Target to 10.9
 * Deprecates `UISegmentedControl.enabled(forSegmentAt:)` in favor of `UISegmentedControl.enabledForSegment(at:)`.
-
 
 ## [4.1.2](https://github.com/ReactiveX/RxSwift/releases/tag/4.1.2)
 
