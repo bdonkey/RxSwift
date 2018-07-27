@@ -57,10 +57,25 @@ example("Variable") {
   var d = ["scott":"schmidt"]
    d["schmidt"] = "scott"
   let dv = Variable(d)
-
   dv.asObservable().addObserver("1").disposed(by: disposeBag)
   d["time"] = "is infinite"
   dv.value = d
+  dv.value["RxSift"] = "is hard"
+  dv.value = ["this kill": "prior rx"] // this kills prior dv values
   
+}
+
+example("Variable1") {
+  
+  let disposeBag = DisposeBag()
+  var d: [String:String] = [:]
+  var dv = Variable(d)
+  
+}
+
+example("test swift map") {
+  let xray = [1,2,3]
+  let j = xray.map({$0 * $0})
+  print(j)
 }
 //: [Next](@next)
